@@ -1,0 +1,103 @@
+{
+  "id": "competitor-intel",
+  "label": {
+    "zh": "竞品情报专家",
+    "en": "Competitor Intel"
+  },
+  "description": {
+    "zh": "自动爬取竞品价格、上新、舆情数据，对比历史快照生成异动报告，定时推送到飞书/企微群",
+    "en": "Auto-scrape competitor pricing, launches, and sentiment — delivers change alerts to IM groups"
+  },
+  "welcome_message": {
+    "zh": "👋 你好！我是竞品情报专家。告诉我你想监控哪些竞品的 URL，我会帮你每天定时爬取、分析异动、生成报告推送到群里。",
+    "en": "Hi! I'm your competitor intel specialist. Send me the URLs you want to monitor and I'll crawl them, flag anomalies, and push daily alerts."
+  },
+  "icon_name": "radar",
+  "color": "#e74c3c",
+  "prompt_files": [
+    "SOUL.md",
+    "IDENTITY.md"
+  ],
+  "quick_prompts": [
+    {
+      "title": {
+        "zh": "今日竞品异动",
+        "en": "Today's competitor changes"
+      },
+      "description": {
+        "zh": "爬取我关注的竞品，列出今天的价格变动、新上架商品和负面评论",
+        "en": "Scrape tracked competitors, list today's price changes, new launches, and negative reviews"
+      },
+      "prompt": {
+        "zh": "请用 competitor-crawler 插件爬取我之前分享的所有竞品 URL，对比最近一次快照，生成异动报告。",
+        "en": "Use competitor-crawler to scrape all competitor URLs I shared earlier, diff against the last snapshot, and generate an anomaly report."
+      },
+      "color": "#ffeaea",
+      "icon_name": "radar"
+    },
+    {
+      "title": {
+        "zh": "添加监控目标",
+        "en": "Add monitored target"
+      },
+      "description": {
+        "zh": "告诉我竞品 URL 和名称，我会把它加入监控列表",
+        "en": "Send me a competitor URL and name and I'll add it to your watch list"
+      },
+      "prompt": {
+        "zh": "帮我把 https://item.jd.com/XXXX.html 这个竞品加到监控列表，商品名叫「XX 品牌 YYY」。",
+        "en": "Add https://item.jd.com/XXXX.html to the watch list, product name 'Brand X Model Y'."
+      },
+      "color": "#dcfce7",
+      "icon_name": "plus"
+    },
+    {
+      "title": {
+        "zh": "设置每日定时推送",
+        "en": "Set up daily push"
+      },
+      "description": {
+        "zh": "每天早上 08:00 自动爬取竞品，异动报告推送到飞书/企微群",
+        "en": "Automatically scrape competitors at 08:00 daily and push the anomaly report to IM"
+      },
+      "prompt": {
+        "zh": "帮我创建一个每天 08:00 执行的 Cron 任务：爬取我监控的所有竞品，生成异动报告，推送到我的飞书群。",
+        "en": "Create a daily 08:00 cron job: scrape all my monitored competitors, generate an anomaly report, and push it to my IM channel."
+      },
+      "color": "#fef3c7",
+      "icon_name": "bell"
+    },
+    {
+      "title": {
+        "zh": "竞品价格趋势",
+        "en": "Price trend view"
+      },
+      "description": {
+        "zh": "查看某个竞品过去 7 天的价格快照历史和走势",
+        "en": "View a competitor's 7-day price history and trend"
+      },
+      "prompt": {
+        "zh": "帮我查看「XX 品牌 YYY」过去 7 天的价格快照历史，价格是涨了还是跌了？",
+        "en": "Show me the 7-day price snapshot history for 'Brand X Model Y' — is it up or down?"
+      },
+      "color": "#e0e7ff",
+      "icon_name": "trending-up"
+    }
+  ],
+  "task_examples": {
+    "zh": [
+      "每天「08:00」自动爬取我监控的 5 个竞品，对比历史快照生成异动报告，推送到飞书群。价格 ±10% 或销量 ±30% 才算异动。",
+      "每个工作日「18:30」扫描竞品评论区，识别评论数暴涨的商品（评论日增 ≥ 50 条），标记出来。",
+      "每周一「09:00」生成一份竞品周报：过去一周的价格变动、上新商品、舆情趋势，汇总成 Markdown 推群。",
+      "每两小时检查一次竞品 URL 是否可访问，如果连续 3 次爬取失败就告警。",
+      "每天「10:00」只爬取新上架监控（新标题），跳过已上架商品，节省 token。"
+    ],
+    "en": [
+      "Every day at 08:00, auto-scrape my 5 monitored competitors, diff against history, push an anomaly report to Feishu. Price ±10% or sales ±30% counts as anomaly.",
+      "Every weekday at 18:30, scan competitor comment sections and flag products with surging comment volume (≥50/day).",
+      "Every Monday at 09:00, generate a weekly competitor report: price moves, new launches, sentiment trends — push Markdown to IM.",
+      "Every 2 hours check if competitor URLs are reachable; alert on 3 consecutive crawl failures.",
+      "Every day at 10:00, only check for new launches (new titles), skip existing products to save tokens."
+    ]
+  }
+}

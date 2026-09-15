@@ -1,0 +1,10 @@
+id: competitor-crawler
+version: 0.1.0
+name: 竞品情报爬虫
+description: 爬取竞品商品的价格、销量、上新与评论数据，支持 HTTP API 和浏览器两种模式
+icon: "🕷️"
+kind: tool
+entry: main.py
+requires:
+  - httpx>=0.27
+  - beautifulsoup4>=4.12
