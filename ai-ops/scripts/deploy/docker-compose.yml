@@ -1,0 +1,62 @@
+# scripts/deploy/docker-compose.yml
+# Phase 3 · 私有化部署基础模板
+# Octop + PostgreSQL + Nginx (optional)
+
+services:
+  octop:
+    image: ${OCTOP_IMAGE:-tencentcloud/octop}:${OCTOP_VERSION:-latest}
+    container_name: aiops-octop
+    restart: unless-stopped
+    volumes:
+      - octop_home:/home/octop/.octop
+      # 业务方扩展层挂载点（可选，替代 install-all）
+      # - ./extensions:/home/octop/extensions:ro
+    environment:
+      - OCTOP_DB_URL=postgresql://octop:${OCTOP_DB_PASSWORD}@postgres:5432/octop
+      - OCTOP_DEFAULT_TIMEZONE=${OCTOP_TZ:-Asia/Shanghai}
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "octop", "doctor"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: aiops-postgres
+    restart: unless-stopped
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: octop
+      POSTGRES_PASSWORD: ${OCTOP_DB_PASSWORD}
+      POSTGRES_DB: octop
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U octop"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  nginx:
+    image: nginx:alpine
+    container_name: aiops-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - certbot_certs:/etc/letsencrypt
+    depends_on:
+      - octop
+    profiles:
+      - tls  # 仅启用 TLS 时启动：docker compose --profile tls up -d
+
+volumes:
+  octop_home:
+  pg_data:
+  certbot_certs:

@@ -1,0 +1,7 @@
+id: sentiment-tracker
+version: 0.0.1
+name: 情感分析追踪
+description: Phase 2 · 识别评论/笔记的正面/中性/负面，检测危机情绪
+icon: "😊"
+kind: tool
+entry: main.py

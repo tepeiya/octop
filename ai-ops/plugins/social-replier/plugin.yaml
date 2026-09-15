@@ -1,0 +1,9 @@
+id: social-replier
+version: 0.0.1
+name: 自动评论回复
+description: Phase 2 · 浏览器 AI+ 自动在评论区回复（强制 HITL 审批）
+icon: "💬"
+kind: tool
+entry: main.py
+requires:
+  - httpx>=0.27

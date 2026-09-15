@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.eggs/
+
+# Editor
+.idea/
+.vscode/
+.DS_Store
+*.swp
+
+# Make 临时产物
+dist/
+build/

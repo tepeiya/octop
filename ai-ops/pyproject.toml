@@ -1,0 +1,26 @@
+[project]
+name = "ai-ops-extensions"
+version = "0.1.0"
+description = "AI 运营自动化中台 · Octop 商业扩展层（插件 / 专家模板 / Connector）"
+requires-python = ">=3.12"
+readme = "README.md"
+
+dependencies = [
+    # Octop 运行时会注入 harness-agent / harness-browser / httpx / bs4 等，
+    # 这里只声明插件需要、但 Octop 默认可能没装的额外依赖。
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = []  # 这个仓库不产生 wheel；扩展层通过 make install-* 拷贝
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
