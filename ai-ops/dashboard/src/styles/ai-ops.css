@@ -1,0 +1,425 @@
+/* AI 运营自动化 · Dashboard 页面样式 */
+
+/* ===========================================================================
+   共用
+   =========================================================================== */
+
+.alert-error {
+  background: #fee;
+  color: #c33;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.empty-hint {
+  color: #999;
+  font-size: 13px;
+  line-height: 1.6;
+  padding: 16px;
+  text-align: center;
+}
+
+.platform-tag {
+  display: inline-block;
+  background: #eef;
+  color: #448;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-right: 8px;
+}
+
+/* ===========================================================================
+   竞品情报监控
+   =========================================================================== */
+
+.competitor-monitor {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.monitor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.monitor-header h2 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.btn-scan {
+  background: #4f46e5;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.btn-scan:hover {
+  background: #4338ca;
+}
+.btn-scan:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.monitor-layout {
+  display: flex;
+  gap: 20px;
+}
+
+.monitor-sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.monitor-sidebar h3 {
+  font-size: 14px;
+  margin: 0 0 12px;
+  color: #6b7280;
+}
+
+.watchlist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.watchlist li {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 4px;
+}
+
+.watchlist li.active {
+  background: #e0e7ff;
+}
+
+.watchlist li:hover {
+  background: #f3f4f6;
+}
+
+.watchlist .product-name {
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.monitor-detail {
+  flex: 1;
+}
+
+.snapshot-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.snapshot-card h3 {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+
+.snapshot-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.source-link {
+  font-size: 12px;
+  color: #4f46e5;
+  text-decoration: none;
+}
+
+.snapshot-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.snapshot-item {
+  text-align: center;
+}
+
+.snapshot-item label {
+  display: block;
+  font-size: 12px;
+  color: #9ca3af;
+  margin-bottom: 4px;
+}
+
+.snapshot-item .value {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.snapshot-item .value.price {
+  color: #e74c3c;
+}
+
+.snapshot-time {
+  font-size: 12px;
+  color: #9ca3af;
+  border-top: 1px solid #f3f4f6;
+  padding-top: 8px;
+}
+
+.empty-detail {
+  text-align: center;
+  padding: 40px;
+  color: #9ca3af;
+}
+
+/* ===========================================================================
+   舆情监控
+   =========================================================================== */
+
+.public-opinion {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.opinion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.opinion-header h2 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.opinion-stats {
+  display: flex;
+  gap: 16px;
+  font-size: 14px;
+}
+
+.stat-item strong {
+  color: #4f46e5;
+}
+
+.stat-item.urgent strong {
+  color: #e74c3c;
+}
+
+.opinion-layout {
+  display: flex;
+  gap: 20px;
+}
+
+.opinion-alerts {
+  flex: 1;
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.opinion-alerts h3 {
+  font-size: 14px;
+  margin: 0 0 12px;
+  color: #6b7280;
+}
+
+.alert-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.alert-item {
+  background: #fff;
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border-left: 3px solid #3498db;
+}
+
+.alert-item.urgent {
+  border-left-color: #e74c3c;
+}
+
+.alert-item.watch {
+  border-left-color: #f39c12;
+}
+
+.alert-item.acknowledged {
+  opacity: 0.6;
+}
+
+.alert-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.alert-level {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.alert-time {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.btn-ack {
+  background: #10b981;
+  color: #fff;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.alert-body {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.alert-keyword {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.alert-platform {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.alert-message {
+  font-size: 13px;
+  color: #374151;
+}
+
+/* Webhook 配置面板 */
+
+.opinion-webhook {
+  width: 360px;
+  flex-shrink: 0;
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.opinion-webhook h3 {
+  font-size: 14px;
+  margin: 0 0 8px;
+  color: #6b7280;
+}
+
+.webhook-hint {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-bottom: 12px;
+}
+
+.webhook-form label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: #374151;
+}
+
+.webhook-form label.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 12px 0;
+}
+
+.input-url {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+.webhook-actions {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.btn-save,
+.btn-test {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.btn-save {
+  background: #4f46e5;
+  color: #fff;
+}
+
+.btn-test {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.btn-save:disabled,
+.btn-test:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.test-result {
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  background: #f0fdf4;
+  margin-top: 8px;
+}
+
+.webhook-tips {
+  margin-top: 16px;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 12px;
+}
+
+.webhook-tips h4 {
+  font-size: 13px;
+  margin: 0 0 8px;
+}
+
+.webhook-tips ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.webhook-tips li {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}

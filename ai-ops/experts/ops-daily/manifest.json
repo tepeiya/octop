@@ -1,0 +1,40 @@
+{
+  "id": "ops-daily",
+  "label_zh": "运营日报聚合专家",
+  "label_en": "Ops Daily Report Expert",
+  "description_zh": "聚合竞品情报 + 舆情监控 + 客服数据 + 电商后台数据，生成一站式运营日报",
+  "description_en": "Aggregates competitor intel + sentiment + CS + e-commerce data into one ops daily report",
+  "category": "operations",
+  "version": "0.1.0",
+  "prompt_files": ["SOUL.md"],
+  "quick_prompts": [
+    {
+      "label": "今日运营日报",
+      "prompt": "帮我生成今日运营日报，包含竞品价格异动、舆情概况、客服指标、库存预警"
+    },
+    {
+      "label": "运营周报",
+      "prompt": "生成本周运营周报，对比上周数据，给出趋势分析"
+    },
+    {
+      "label": "竞品+舆情联动",
+      "prompt": "分析竞品降价是否引发了我们的舆情变化"
+    },
+    {
+      "label": "跨平台销量对比",
+      "prompt": "对比我们在各电商平台的销量表现"
+    }
+  ],
+  "task_examples": [
+    {
+      "name": "每日运营日报",
+      "cron": "0 9 * * *",
+      "prompt": "生成今日运营日报，推送到飞书运营群"
+    },
+    {
+      "name": "每周运营周报",
+      "cron": "0 9 * * 1",
+      "prompt": "生成本周运营周报，对比上周数据"
+    }
+  ]
+}

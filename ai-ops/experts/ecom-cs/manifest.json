@@ -1,0 +1,40 @@
+{
+  "id": "ecom-cs",
+  "label_zh": "电商客服专家",
+  "label_en": "E-commerce CS Expert",
+  "description_zh": "专精电商客服场景：自动回复常见问题、跟进订单状态、处理售后、复杂问题转人工",
+  "description_en": "Specialized in e-commerce customer service: auto-reply, order tracking, after-sales, escalation",
+  "category": "ecommerce",
+  "version": "0.1.0",
+  "prompt_files": ["SOUL.md"],
+  "quick_prompts": [
+    {
+      "label": "回复客户咨询",
+      "prompt": "客户问：{question}，帮我根据知识库匹配话术并起草回复"
+    },
+    {
+      "label": "订单状态跟进",
+      "prompt": "帮我查一下订单 {order_id} 的最新状态，如果有异常通知客户"
+    },
+    {
+      "label": "售后处理",
+      "prompt": "客户反馈：{complaint}，帮我判断售后类型并起草处理方案"
+    },
+    {
+      "label": "客服日报",
+      "prompt": "帮我生成今日客服处理日报，包含接待量、解决率、平均响应时间"
+    }
+  ],
+  "task_examples": [
+    {
+      "name": "每日客服日报",
+      "cron": "0 18 * * *",
+      "prompt": "生成今日客服日报，推送到飞书群"
+    },
+    {
+      "name": "未读消息提醒",
+      "cron": "*/30 * * * *",
+      "prompt": "检查是否有 30 分钟未回复的客户消息，有的话提醒客服"
+    }
+  ]
+}

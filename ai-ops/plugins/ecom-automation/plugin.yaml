@@ -1,0 +1,8 @@
+name: ecom-automation
+version: 0.1.0
+description: 电商自动化工具（自动改价/上新推荐/库存预警）
+author: AI Ops
+tools:
+  - auto_adjust_price
+  - recommend_new_listing
+  - check_low_stock
