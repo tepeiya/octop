@@ -1,0 +1,103 @@
+{
+  "id": "public-opinion",
+  "label": {
+    "zh": "舆情监控专家",
+    "en": "Public Opinion Monitor"
+  },
+  "description": {
+    "zh": "监控品牌/产品关键词在小红书、知乎、微博等平台的提及，自动识别负面情绪和危机，定时推送舆情报告到飞书/企微群",
+    "en": "Monitor brand/product mentions across social platforms, detect negative sentiment and crises, push daily reports to IM"
+  },
+  "welcome_message": {
+    "zh": "👋 你好！我是舆情监控专家。告诉我你想监控哪些关键词（品牌名、产品名、竞品名），我会定时爬取各平台、分析情感、识别危机、推送到你的群里。",
+    "en": "Hi! I'm your public opinion monitor. Tell me which keywords to track and I'll scrape platforms, analyze sentiment, flag crises, and push reports."
+  },
+  "icon_name": "shield-alert",
+  "color": "#8b5cf6",
+  "prompt_files": [
+    "SOUL.md",
+    "IDENTITY.md"
+  ],
+  "quick_prompts": [
+    {
+      "title": {
+        "zh": "今日舆情扫描",
+        "en": "Today's sentiment scan"
+      },
+      "description": {
+        "zh": "扫描我监控的关键词，输出正面/负面提及摘要",
+        "en": "Scan tracked keywords and summarize positive/negative mentions"
+      },
+      "prompt": {
+        "zh": "请用 social-scraper 插件爬取我监控的所有关键词在各平台的搜索结果，用 sentiment-tracker 做情感分类，生成今日舆情摘要。",
+        "en": "Use social-scraper to crawl my tracked keywords across platforms, classify sentiment, and generate today's summary."
+      },
+      "color": "#ede9fe",
+      "icon_name": "shield-alert"
+    },
+    {
+      "title": {
+        "zh": "危机告警检查",
+        "en": "Crisis alert check"
+      },
+      "description": {
+        "zh": "检查是否有紧急级舆情需要立即处理",
+        "en": "Check for urgent-level sentiment requiring immediate action"
+      },
+      "prompt": {
+        "zh": "请检查最近 2 小时的舆情数据，有没有紧急级别的负面提及？如果有，立即告警。",
+        "en": "Check the last 2 hours of data for any urgent-level negative mentions. Alert immediately if found."
+      },
+      "color": "#fee2e2",
+      "icon_name": "alert-triangle"
+    },
+    {
+      "title": {
+        "zh": "添加监控关键词",
+        "en": "Add tracked keyword"
+      },
+      "description": {
+        "zh": "告诉我关键词和平台，加入监控列表",
+        "en": "Send me a keyword and platforms to track"
+      },
+      "prompt": {
+        "zh": "帮我把「XX 品牌」加到舆情监控列表，监控平台：小红书、知乎、微博。",
+        "en": "Add 'Brand X' to the sentiment watch list, platforms: xiaohongshu, zhihu, weibo."
+      },
+      "color": "#dcfce7",
+      "icon_name": "plus"
+    },
+    {
+      "title": {
+        "zh": "舆情周报",
+        "en": "Weekly sentiment report"
+      },
+      "description": {
+        "zh": "生成本周舆情趋势报告，含情感占比、热度趋势、危机事件回顾",
+        "en": "Generate weekly trend report with sentiment ratio, heat trends, crisis recap"
+      },
+      "prompt": {
+        "zh": "请生成本周的舆情周报，包括：各平台提及量、正负面占比、热度趋势 TOP5、本周危机事件回顾。",
+        "en": "Generate this week's report: mention volume, positive/negative ratio, top-5 heat trends, crisis recap."
+      },
+      "color": "#fef3c7",
+      "icon_name": "file-text"
+    }
+  ],
+  "task_examples": {
+    "zh": [
+      "每 2 小时扫描一次监控关键词的各平台搜索结果，负面提及数 ≥ 10 时立即推飞书群告警",
+      "每天「09:00」推送昨日舆情日报：提及总量、正负面占比、热度趋势 TOP5、负面摘要",
+      "每周一「10:00」生成舆情周报，推送到飞书群",
+      "当某关键词负面情感占比超过 60% 且总提及 ≥ 50 时，立即告警并@相关负责人",
+      "每天「18:00」扫描竞品关键词，对比我们与竞品的正负面占比差异"
+    ],
+    "en": [
+      "Every 2 hours scan tracked keywords across platforms; alert Feishu group when negative mentions ≥ 10",
+      "Every day at 09:00 push yesterday's sentiment report: total mentions, pos/neg ratio, top-5 trends, negative summary",
+      "Every Monday at 10:00 generate weekly sentiment report and push to IM",
+      "When a keyword's negative ratio exceeds 60% with ≥ 50 total mentions, alert immediately and @ responsible person",
+      "Every day at 18:00 scan competitor keywords and compare our vs competitor positive/negative ratio"
+    ]
+  }
+}
